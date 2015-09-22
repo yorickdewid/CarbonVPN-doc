@@ -23,3 +23,7 @@ make
 ```
 
 Now you can (as root) install CarbonVPN with `make install`
+
+## Run
+
+You can run the client or server by simply call the binary `./carbond [OPTIONS] [COMMANDS]`.
