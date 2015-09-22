@@ -1,57 +1,72 @@
 # Quick start
 Assuming you have installed or compiled CarbonVPN successfully.
 
-## 1. Setup Server
-First you must generate the ca information.
-Assuming you are in the correct folder, run CarbonVPN.
+## 1. Server setup
+First you must generate the CA certificate.
+Assuming you are in the correct directory, run CarbonVPN with the `genca` option.
+
 ```
 ./carbond genca
 ```
-This will output the cacert, public key and private key to screen.
+
+This will output the CA certificate, CA public key and CA private key.
 You will need to copy these into the __vpn.conf__ file.
 Replace the following entries:
+
 ```
-cacert = <YOUR CACERT>  ; CA certificate
-capublickey = <YOUR CAPUBLIC KEY>  ; CA public key
-caprivatekey = <YOUR CAPRIVATE KEY> ; CA private key, only on server
+cacert = <YOUR CACERT>
+capublickey = <YOUR CAPUBLIC KEY>
+caprivatekey = <YOUR CAPRIVATE KEY>
 ```
-Next generate the certificates:
+Next generate the server certificate:
+
 ```
 ./carbond gencert
 ```
+
 And replace the following entries in __vpn.conf__:
 
 ```
-publickey = <YOUR PUBLIC KEY>       ; Public key
-privatekey = <YOUR PRIVATE KEY>     ; Private key
+publickey = <YOUR PUBLIC KEY>
+privatekey = <YOUR PRIVATE KEY>
 ```
+### Clients
 
-## 2. Setup client
-### note:
-Make sure router option is left disabled in client config.
+For every client you will need to repeat this step. In this example we will assume there is only one client.
 
-Open and edit vpn.conf file and add the public key/private key from the server:
-```
-publickey = <YOUR PUBLIC KEY>; Public key
-privatekey = [YOUR PRIVATE KEY]; Private key
-```
-###note:
-Filling in the private key is optional since it can be calculated by the client.
-
-## 3. Connecting
-
-
-Assuming you are in the correct folder, and root:
-```
-./carbond -f vpn.conf -c [X.X.X.X]
-```
-check if interface was added:
-```
-ifconfig
-```
-
-execute a ping to server ip as a test:
+Generate the client certificate:
 
 ```
-ping [x.x.x.x]
+./carbond gencert
+```
+
+You will need both keys for the next step.
+
+## 2. Client setup
+
+Open the vpn.conf file on the client and add the public key/private keypair generated in the previous step:
+
+```
+publickey = <YOUR PUBLIC KEY>
+privatekey = <YOUR PRIVATE KEY>
+```
+
+In addition to this client keypair you must also copy the cacert and capublickey from the server.
+
+**Note:** the caprivatekey is *always* empty in the client configurations.
+
+## 3. Client connect
+
+Now on the client machine, run as root:
+
+```
+./carbond -f vpn.conf -c <VPN SERVER IP>
+```
+
+You can manually verify that the connection was established. Run `ifconfig` or `ip link show` and look for the tunnel interface. By default that would be `tun0`
+
+Now check the connection itself. Execute a ping to server ip as a test. If you followed this guide so far you can reach the server using:
+
+```
+ping 10.7.0.1
 ```
