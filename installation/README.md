@@ -4,7 +4,7 @@ CarbonVPN is built using autotools, you will need `automake` and `autoconf` inst
 
 Download a copy of the source by cloning the [repository](https://github.com/yorickdewid/CarbonVPN) or download a release.
 
-**Note:** At the time of writing CarbonVPN is still in development, this means there are no releases at the moment.
+**Note:** At the time of writing CarbonVPN is still in development, this means there are no releases as of yet.
 
 ## Dependencies
 
