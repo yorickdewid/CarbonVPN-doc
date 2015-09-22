@@ -3,14 +3,7 @@
 Assuming you have installed or compiled CarbonVPN successfully.
 
 ## 1. Setup Server
-First step set server config or uncomment in __vpn.conf__
-```
-router = 10.6.0.1          ; VPN binds to ip
-netmask = 255.255.255.0    ; Network range netmask
-max_clients = 20           ; Maximum number of clients
-heartbeat = 1800           ; Keep connection alive (in sec) (0 = disabled)
-```
-Next we must generate the ca information.
+First you must generate the ca information.
 Assuming you are in the correct folder, run CarbonVPN.
 ```
 ./carbond genca
