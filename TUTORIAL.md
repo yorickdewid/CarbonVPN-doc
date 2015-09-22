@@ -1,6 +1,6 @@
 
 #Note
-We assume you have installed or compiled CarbonVPN succesfully.
+Assuming you have installed or compiled CarbonVPN successfully.
 
 ## 1. Setup Server
 First step set server config or uncomment in __vpn.conf__
@@ -19,9 +19,9 @@ This will output the cacert, public key and private key to screen.
 You will need to copy those into the __vpn.conf__ file.
 Replace the following entries:
 ```
-cacert = [YOUR CACERT]  ; CA certificate
-capublickey =  [YOUR CAPUBLIC KEY]  ; CA public key
-caprivatekey = [YOUR CAPRIVATE KEY] ; CA private key, only on server
+cacert = <YOUR CACERT>  ; CA certificate
+capublickey = <YOUR CAPUBLIC KEY>  ; CA public key
+caprivatekey = <YOUR CAPRIVATE KEY> ; CA private key, only on server
 ```
 Next generate the certificates, run as root.
 ```
@@ -30,8 +30,8 @@ Next generate the certificates, run as root.
 And replace the following entries in __vpn.conf__:
 
 ```
-publickey = [YOUR PUBLIC KEY]       ; Public key
-privatekey = [YOUR PRIVATE KEY]     ; Private key
+publickey = <YOUR PUBLIC KEY>       ; Public key
+privatekey = <YOUR PRIVATE KEY>     ; Private key
 ```
 
 ## 2. Setup client
@@ -40,7 +40,7 @@ Make sure router option is left disabled in client config.
 
 Open and edit vpn.conf file and add the public key/private key from the server:
 ```
-publickey = [YOUR PUBLIC KEY]; Public key
+publickey = <YOUR PUBLIC KEY>; Public key
 privatekey = [YOUR PRIVATE KEY]; Private key
 ```
 ###side note:
