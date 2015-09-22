@@ -1,10 +1,10 @@
 # Installation
 
-CarbonVPN is built using autotools and you will need to have `automake` and `autoconf` installed on your system.
+CarbonVPN is built using autotools, you will need `automake` and `autoconf` installed on your system.
 
 Download a copy of the source by cloning the [repository](https://github.com/yorickdewid/CarbonVPN) or download a release.
 
-**Note:** At the moment of writing CarbonVPN is still in development and there are no releases yet.
+**Note:** At the time of writing CarbonVPN is still in development, this means there are no releases at the moment.
 
 ## Dependencies
 
@@ -26,4 +26,4 @@ Now you can (as root) install CarbonVPN with `make install`
 
 ## Run
 
-You can run the client or server by simply call the binary `./carbond [OPTIONS] [COMMANDS]`.
+You can run the client or server by simply calling the binary `./carbond [OPTIONS] [COMMANDS]`.
