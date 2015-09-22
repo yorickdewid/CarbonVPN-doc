@@ -10,20 +10,20 @@ netmask = 255.255.255.0    ; Network range netmask
 max_clients = 20           ; Maximum number of clients
 heartbeat = 1800           ; Keep connection alive (in sec) (0 = disabled)
 ```
-Next we must generate the ca information, this has to be done as root.
+Next we must generate the ca information.
 Assuming you are in the correct folder, run CarbonVPN.
 ```
 ./carbond genca
 ```
 This will output the cacert, public key and private key to screen.
-You will need to copy those into the __vpn.conf__ file.
+You will need to copy these into the __vpn.conf__ file.
 Replace the following entries:
 ```
 cacert = <YOUR CACERT>  ; CA certificate
 capublickey = <YOUR CAPUBLIC KEY>  ; CA public key
 caprivatekey = <YOUR CAPRIVATE KEY> ; CA private key, only on server
 ```
-Next generate the certificates, run as root.
+Next generate the certificates:
 ```
 ./carbond gencert
 ```
@@ -43,7 +43,7 @@ Open and edit vpn.conf file and add the public key/private key from the server:
 publickey = <YOUR PUBLIC KEY>; Public key
 privatekey = [YOUR PRIVATE KEY]; Private key
 ```
-###side note:
+###note:
 Filling in the private key is optional since it can be calculated by the client.
 
 ## 3. Connecting
