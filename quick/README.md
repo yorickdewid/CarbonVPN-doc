@@ -18,7 +18,7 @@ cacert = <YOUR CACERT>
 capublickey = <YOUR CAPUBLIC KEY>
 caprivatekey = <YOUR CAPRIVATE KEY>
 ```
-Next generate the server certificate:
+Save the config file before you continue. Next generate the server certificate:
 
 ```
 ./carbond gencert
